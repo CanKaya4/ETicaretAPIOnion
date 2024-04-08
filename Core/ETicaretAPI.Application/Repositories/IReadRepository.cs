@@ -13,12 +13,12 @@ namespace ETicaretAPI.Application.Repositories
         //IQuerayble : gönderilen sorguları veritabanı sorgusuna ekler.
     {
         //Tüm Productları getir.
-        IQueryable<T> GetAll();
+        IQueryable<T> GetAll(bool tracking = true);
         //Şarta göre veriler gelsin
-        IQueryable<T> GetWhere(Expression<Func<T, bool>> method);
+        IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true);
         //Verilen şarta göre tekil veri getirecek
-        Task<T> GetSingleAsync(Expression<Func<T, bool>> method); // Asenkron Çalışacak
+        Task<T> GetSingleAsync(Expression<Func<T, bool>> method, bool tracking = true); // Asenkron Çalışacak
         //Id'ye göre getir
-        Task<T> GetByIdAsync(string id); // Asenkron Çalışacak
+        Task<T> GetByIdAsync(string id, bool tracking = true); // Asenkron Çalışacak
     }
 }
