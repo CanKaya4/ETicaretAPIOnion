@@ -20,6 +20,10 @@ namespace ETicaretAPI.Persistence.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<Domain.Entities.File> Files { get; set; }
+        public DbSet<ProductImageFile> ProductImageFiles { get; set; }
+        public DbSet<InvoiceFile> InvoiceFiles { get; set; }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             //   ChangeTracker : Entityler üzerinde yapılan değişikliklerin ya da yeni eklenen verileri yakanlanmasını sağlayan property'dir. Update operasyonlarında Tracke edilen verileri yakalayıp elde etmemizi sağlamaktadır.
@@ -35,9 +39,6 @@ namespace ETicaretAPI.Persistence.Context
             }
             return  base.SaveChangesAsync(cancellationToken);
         }
-        //public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
-        //{
-        //    return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        //}
+       
     }
 }
